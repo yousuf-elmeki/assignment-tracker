@@ -1,0 +1,12 @@
+<%- include("../partials/header") %>
+
+<h2>Delete Assignment</h2>
+
+<p>Are you sure you want to delete "<%= assignment.title %>"?</p>
+
+<form action="/assignments/<%= assignment._id %>/delete" method="POST">
+  <button class="btn btn-danger">Delete</button>
+  <a href="/assignments" class="btn btn-secondary">Cancel</a>
+</form>
+
+<%- include("../partials/footer") %>
