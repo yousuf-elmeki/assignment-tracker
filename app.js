@@ -1,34 +1,33 @@
 import express from "express";
-import path from "path";
-import { fileURLToPath } from "url";
 import dotenv from "dotenv";
 import mongoose from "mongoose";
 
-// Load environment variables
+import assignmentRoutes from "./routes/assignments.js";
+
 dotenv.config();
 
 const app = express();
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
+// EJS
+app.set("view engine", "ejs");
+app.set("views", "./views");
 
-// Connect to MongoDB
+// To read form data
+app.use(express.urlencoded({ extended: true }));
+
+// Routes
+app.use("/assignments", assignmentRoutes);
+
+// Home page
+app.get("/", (req, res) => {
+  res.render("index");
+});
+
+// MongoDB
 mongoose
   .connect(process.env.MONGO_URI)
   .then(() => console.log("MongoDB connected"))
-  .catch((err) => console.error("MongoDB error:", err));
+  .catch((err) => console.error(err));
 
-// Middleware
-app.use(express.urlencoded({ extended: true }));
-app.use(express.static(path.join(__dirname, "public")));
-
-
-app.get("/", (req, res) => {
-  res.send("Assignment Tracker server is running");
-});
-
-// Start the server
-const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => {
-  console.log(`Server running at http://localhost:${PORT}`);
-});
+// Start server
+app.listen(3000, () => console.log("Server running at http://localhost:3000"));
