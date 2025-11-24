@@ -1,10 +1,8 @@
-/* ------------------------------
-   Simple Baby Blue Theme
---------------------------------*/
+/* Simple Baby Blue Theme*/
 
-/* Global */
+
 body {
-    background-color: #cfe8ff; /* soft baby blue */
+    background-color: #cfe8ff; /* baby blue */
     color: #000;              /* black text */
     font-family: "Segoe UI", Arial, sans-serif;
     margin: 0;

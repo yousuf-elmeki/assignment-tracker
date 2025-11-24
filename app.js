@@ -8,15 +8,17 @@ dotenv.config();
 
 const app = express();
 
-// EJS
+// Serve CSS and other static files
 app.use(express.static("public"));
+
+// Set EJS as the template engine
 app.set("view engine", "ejs");
 app.set("views", "./views");
 
-// To read form data
+// Enable form data parsing
 app.use(express.urlencoded({ extended: true }));
 
-// Routes
+// Use assignment routes
 app.use("/assignments", assignmentRoutes);
 
 // Home page
@@ -24,11 +26,12 @@ app.get("/", (req, res) => {
   res.render("index");
 });
 
-// MongoDB
+// Connect to MongoDB Atlas
 mongoose
   .connect(process.env.MONGO_URI)
   .then(() => console.log("MongoDB connected"))
   .catch((err) => console.error(err));
 
-// Start server
-app.listen(3000, () => console.log("Server running at http://localhost:3000"));
+// Start server (Render requires process.env.PORT)
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => console.log("Server running on port", PORT));
