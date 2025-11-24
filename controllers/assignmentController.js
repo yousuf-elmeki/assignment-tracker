@@ -11,7 +11,7 @@ export const showNewForm = (req, res) => {
   res.render("assignments/new");
 };
 
-// POST /assignments/new
+// POST /assignments
 export const createAssignment = async (req, res) => {
   const { title, course, dueDate, description } = req.body;
 

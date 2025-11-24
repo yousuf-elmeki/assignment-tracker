@@ -1,33 +1,39 @@
 <%- include("../partials/header") %>
 
-<h2>Assignments</h2>
+<h1>Assignments</h1>
 
-<a href="/assignments/new" class="btn btn-success mb-3">Add Assignment</a>
+<a href="/assignments/new" class="btn-simple">Add Assignment</a>
 
-<table class="table table-bordered">
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Course</th>
-      <th>Due Date</th>
-      <th>Completed</th>
-      <th>Actions</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% assignments.forEach(a => { %>
-      <tr>
-        <td><%= a.title %></td>
-        <td><%= a.course %></td>
-        <td><%= a.dueDate.toLocaleDateString() %></td>
-        <td><%= a.completed ? "Yes" : "No" %></td>
-        <td>
-          <a href="/assignments/<%= a._id %>/edit" class="btn btn-sm btn-primary">Edit</a>
-          <a href="/assignments/<%= a._id %>/delete" class="btn btn-sm btn-danger">Delete</a>
-        </td>
-      </tr>
-    <% }) %>
-  </tbody>
-</table>
+<br><br>
+
+<div class="table-container">
+    <table>
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Course</th>
+                <th>Due Date</th>
+                <th>Completed</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <% assignments.forEach(a => { %>
+                <tr>
+                    <td><%= a.title %></td>
+                    <td><%= a.course %></td>
+                    <td><%= a.dueDate.toISOString().split("T")[0] %></td>
+                    <td><%= a.completed ? "Yes" : "No" %></td>
+                    <td>
+                        <a href="/assignments/<%= a._id %>/edit" class="btn-table">Edit</a>
+                        <a href="/assignments/<%= a._id %>/delete" class="btn-table">Delete</a>
+
+                    </td>
+                </tr>
+            <% }) %>
+        </tbody>
+    </table>
+</div>
 
 <%- include("../partials/footer") %>

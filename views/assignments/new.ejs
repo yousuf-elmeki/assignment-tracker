@@ -1,29 +1,28 @@
 <%- include("../partials/header") %>
 
-<h2>New Assignment</h2>
+<h1>Add Assignment</h1>
 
-<form action="/assignments/new" method="POST">
-  <div class="mb-3">
-    <label class="form-label">Title</label>
-    <input type="text" name="title" class="form-control" required />
-  </div>
+<a href="/assignments" class="btn-table">← Back</a>
+<br><br>
 
-  <div class="mb-3">
-    <label class="form-label">Course</label>
-    <input type="text" name="course" class="form-control" required />
-  </div>
 
-  <div class="mb-3">
-    <label class="form-label">Due Date</label>
-    <input type="date" name="dueDate" class="form-control" required />
-  </div>
+<div class="form-box">
+<form action="/assignments" method="POST">
 
-  <div class="mb-3">
-    <label class="form-label">Description</label>
-    <textarea name="description" class="form-control"></textarea>
-  </div>
+    <label>Title</label>
+    <input type="text" name="title" required />
 
-  <button class="btn btn-primary">Create</button>
+    <label>Course</label>
+    <input type="text" name="course" required />
+
+    <label>Due Date</label>
+    <input type="date" name="dueDate" required />
+
+    <label>Description</label>
+    <textarea name="description"></textarea>
+
+    <button class="btn-simple">Create</button>
 </form>
+</div>
 
 <%- include("../partials/footer") %>

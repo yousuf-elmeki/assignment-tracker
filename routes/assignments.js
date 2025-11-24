@@ -13,7 +13,7 @@ const router = express.Router();
 
 router.get("/", listAssignments);
 router.get("/new", showNewForm);
-router.post("/new", createAssignment);
+router.post("/", createAssignment);
 
 router.get("/:id/edit", showEditForm);
 router.post("/:id/edit", updateAssignment);
