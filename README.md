@@ -1,7 +1,7 @@
 # Assignment Tracker
 
 This is my Assignment Tracker web application built for Assignment 3.  
-The project implements full Create, Read, Update, and Delete (CRUD) functionality using Node.js, Express.js, MongoDB Atlas, and EJS templates.  
+The project implements full Create, Read, Update, and Delete (CRUD) functionality.  
 The website is styled with a simple baby-blue and black color scheme.
 
 ---
@@ -17,7 +17,6 @@ This application allows users to:
 - Delete assignments (with a confirmation page)
 - Use a consistent visual theme across all pages
 
-The application follows the required MVC structure with routes, controllers, models, and views.
 
 ---
 
@@ -58,3 +57,13 @@ These two colors work really well together. The contrast between the black text 
 - Table layout kept basic and readable  
 - White form boxes for logical content separation  
 - Back buttons added to reduce navigation frustration
+
+---
+
+## Deployment
+This project is deployed using Render.com, which hosts both the Node.js server and the MongoDB-backed Express application.
+
+---
+
+## Live Website
+https://assignment-tracker-wmgt.onrender.com 
