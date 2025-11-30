@@ -9,16 +9,23 @@ import {
   deleteAssignment,
 } from "../controllers/assignmentController.js";
 
+import { ensureAuth } from "../middleware/auth.js";
+
 const router = express.Router();
 
+// View all assignments (public)
 router.get("/", listAssignments);
-router.get("/new", showNewForm);
-router.post("/", createAssignment);
 
-router.get("/:id/edit", showEditForm);
-router.post("/:id/edit", updateAssignment);
+// Create assignment (protected)
+router.get("/new", ensureAuth, showNewForm);
+router.post("/", ensureAuth, createAssignment);
 
-router.get("/:id/delete", showDeletePage);
-router.post("/:id/delete", deleteAssignment);
+// Edit assignment (protected)
+router.get("/:id/edit", ensureAuth, showEditForm);
+router.post("/:id/edit", ensureAuth, updateAssignment);
+
+// Delete assignment (protected)
+router.get("/:id/delete", ensureAuth, showDeletePage);
+router.post("/:id/delete", ensureAuth, deleteAssignment);
 
 export default router;
