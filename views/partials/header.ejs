@@ -1,10 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <title>Assignment Tracker</title>
-    <link rel="stylesheet" href="/style.css" />
+  <meta charset="UTF-8" />
+  <title>Assignment Tracker</title>
+  <link rel="stylesheet" href="/style.css">
 </head>
 <body>
 
-<div class="page-wrapper">
+<header>
+  <nav>
+    <a href="/">Home</a>
+    <a href="/assignments">Assignments</a>
+
+    <% if (!user) { %>
+      <a href="/login">Login</a>
+    <% } else { %>
+      <span>Welcome, <%= user.displayName %></span>
+      <a href="/auth/logout">Logout</a>
+    <% } %>
+  </nav>
+</header>
+
+<main>

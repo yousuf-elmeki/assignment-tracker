@@ -6,7 +6,8 @@ import session from "express-session";
 import assignmentRoutes from "./routes/assignments.js";
 import authRoutes from "./routes/authRoutes.js";
 import passport from "./config/passport.js";
-import { attachUser } from "./middleware/authMiddleware.js";
+import { attachUser } from "./middleware/auth.js";
+
 
 dotenv.config();
 
